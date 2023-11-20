@@ -1,0 +1,337 @@
+from Registro import Menu
+from Registro import segunda
+from Registro import terca
+from Registro import quarta
+from Registro import quinta
+from Registro import sexta
+
+i=1
+arquivo = open("segunda.txt", "w")
+arquivo.write("")
+arquivo.close()
+arquivo = open("terca.txt", "w")
+arquivo.write("")
+arquivo.close()
+arquivo = open("quarta.txt", "w")
+arquivo.write("")
+arquivo.close()
+arquivo = open("quinta.txt", "w")
+arquivo.write("")
+arquivo.close()
+arquivo = open("sexta.txt", "w")
+arquivo.write("")
+arquivo.close()
+
+print("--- Bem vindo ao sistema de I Hair Location ---")
+
+while True:
+    print("Opções:")
+    print("1 - Cadastrar cliente")
+    print("2 - Agendar horário")
+    print("3 - Lista de horários")
+    print("4 - Remover algum horário")
+    print("5 - Refazer cadastro")
+    print("6 - Sair")
+    opcao = input("Escolha uma opção (1/2/3/4/5/6): ")
+
+    if opcao == '1':
+        nomeprov = input('Digite o nome:')
+        cpfprov = input("Digite o CPF:")
+        telprov = input("Digite o telefone:")
+        i = Menu(nomeprov,cpfprov,telprov)
+        i.registrar()
+
+
+
+    if opcao == '2':
+        nomeprov1 = input("Digite o nome para agendamento: ")
+        if nomeprov1 in Menu.dicionario:
+            while True:
+                diaverf = input("Qual dia da semana deseja agendar um horario?(seg/ter/qua/qui/sex) ")
+                if diaverf == 'seg':
+                    arquivop = "segunda.txt"
+
+                    with open(arquivop, "r") as arquivo:
+                        linhatemp = []
+                        for linha in arquivo:
+                            linhatemp.append(linha)
+
+                    print(f"Horarios ja agendados: {linhatemp}")
+
+                    print("Cortes com tempo estimado de 30 minutos.")
+                    wolverines = 1
+                    while wolverines ==1:
+                        horprov = input("Digite o horario desejado entre 13:00 e 17:00: (00:00)/(00:30) - ")
+                        if f"{horprov}\n" in linhatemp:
+                            print("Tente novamente, horario indisponivel.")
+                            wolverines = 1
+                        else:
+                            print("Horario disponivel.")
+                            wolverines = 2
+                    diaprov = "Segunda"
+
+                    with open(arquivop, "a") as arquivo:
+                        arquivo.write(f"{horprov}\n")
+
+                    i.agendar(nomeprov1,horprov,diaprov)
+
+
+                elif diaverf == 'ter':
+                    arquivoter = "terca.txt"
+
+                    with open(arquivoter, "r") as arquivo:
+                        linhatemp3 = []
+                        for linha in arquivo:
+                            linhatemp3.append(linha)
+
+                    print(f"Horarios ja agendados: {linhatemp3}")
+
+
+                    print("Cortes com tempo estimado de 30 minutos.")
+                    wolverines = 1
+                    while wolverines == 1:
+                        horprov = input("Digite o horario desejado entre 13:00 e 17:00: (00:00)/(00:30) - ")
+                        if f"{horprov}\n" in linhatemp3:
+                            print("Tente novamente, horario indisponivel.")
+                            wolverines = 1
+                        else:
+                            print("Horario disponivel.")
+                            wolverines = 2
+                    diaprov = "Terca"
+
+                    with open(arquivoter, "a") as arquivo:
+                        arquivo.write(f"{horprov}\n")
+
+                    i.agendar(nomeprov1,horprov,diaprov)
+
+                elif diaverf == 'qua':
+                    arquivoqua = "quarta.txt"
+
+                    with open(arquivoqua, "r") as arquivo:
+                        linhatemp4 = []
+                        for linha in arquivo:
+                            linhatemp4.append(linha)
+
+                    print(f"Horarios ja agendados: {linhatemp4}")
+
+                    print("Cortes com tempo estimado de 30 minutos.")
+                    wolverines = 1
+                    while wolverines == 1:
+                        horprov = input("Digite o horario desejado entre 13:00 e 17:00: (00:00)/(00:30) - ")
+                        if f"{horprov}\n" in linhatemp4:
+                            print("Tente novamente, horario indisponivel.")
+                            wolverines = 1
+                        else:
+                            print("Horario disponivel.")
+                            wolverines = 2
+                    diaprov = "Quarta"
+
+                    with open(arquivoqua, "a") as arquivo:
+                        arquivo.write(f"{horprov}\n")
+
+                    i.agendar(nomeprov1,horprov,diaprov)
+
+                elif diaverf == 'qui':
+                    arquivoqui = "quinta.txt"
+
+                    with open(arquivoqui, "r") as arquivo:
+                        linhatemp5 = []
+                        for linha in arquivo:
+                            linhatemp5.append(linha)
+
+                    print(f"Horarios ja agendados: {linhatemp5}")
+
+                    print("Cortes com tempo estimado de 30 minutos.")
+                    wolverines = 1
+                    while wolverines == 1:
+                        horprov = input("Digite o horario desejado entre 13:00 e 17:00: (00:00)/(00:30) - ")
+                        if f"{horprov}\n" in linhatemp5:
+                            print("Tente novamente, horario indisponivel.")
+                            wolverines = 1
+                        else:
+                            print("Horario disponivel.")
+                            wolverines = 2
+                    diaprov = "Quinta"
+
+                    with open(arquivoqui, "a") as arquivo:
+                        arquivo.write(f"{horprov}\n")
+
+                    i.agendar(nomeprov1,horprov,diaprov)
+
+                elif diaverf == 'sex':
+                    arquivosex = "sexta.txt"
+
+                    with open(arquivosex, "r") as arquivo:
+                        linhatemp6 = []
+                        for linha in arquivo:
+                            linhatemp6.append(linha)
+
+                    print(f"Horarios ja agendados: {linhatemp6}")
+
+                    print("Cortes com tempo estimado de 30 minutos.")
+                    wolverines = 1
+                    while wolverines == 1:
+                        horprov = input("Digite o horario desejado entre 13:00 e 17:00: (00:00)/(00:30) - ")
+                        if f"{horprov}\n" in linhatemp6:
+                            print("Tente novamente, horario indisponivel.")
+                            wolverines = 1
+                        else:
+                            print("Horario disponivel.")
+                            wolverines = 2
+                    diaprov = "Sexta"
+
+                    with open(arquivosex, "a") as arquivo:
+                        arquivo.write(f"{horprov}\n")
+
+                    i.agendar(nomeprov1,horprov,diaprov)
+                else:
+                    tentar = input("Comando não reconhecido deseja tentar novamente?(s/n)")
+                    if tentar == 's' or tentar == 'S':
+                        continue
+                    else:
+                        break
+                break
+
+        else:
+            resposta = input("Cadastro não localizado, deseja realizar um novo cadastro?(s/n)")
+            if resposta == 's' or resposta == 'S':
+                nomeprov = input('Digite o nome:')
+                cpfprov = input("Digite o CPF:")
+                telprov = input("Digite o telefone:")
+                i = Menu(nomeprov, cpfprov, telprov)
+                i.registrar()
+
+    elif opcao == '3':
+        print(f"Horarios marcados:\n{Menu.horarios}\n")
+
+    elif opcao == '4':
+        print("Horarios marcados: ")
+        print(f"{Menu.horarios}\n")
+        segunda_instancia = segunda()
+        terca_instancia = terca()
+        quarta_instancia = quarta()
+        quinta_instancia = quinta()
+        sexta_instancia = sexta()
+
+        while True:
+            remov = input("Digite o dia que contem o horario que deseja remover:(seg/ter/qua/qui/sex) ")
+
+            if remov == 'seg':
+                print("Segunda.")
+                while True:
+                    horr = input("Qual horario deseja remover?(00:00)")
+                    nomerem = input("Digite o nome corretamente que deseja remover o horario:")
+                    if nomerem in Menu.horarios:
+                        Menu.horarios.pop(nomerem)
+                        igual = horr
+                        segunda_instancia.remover(igual=igual)
+                    else:
+                        escolha = input("Nome incorreto deseja tentar novamente?(s/n)")
+                        if escolha == 's' or escolha == 'S':
+                            continue
+                        else:
+                            break
+                    break
+
+            elif remov == 'ter':
+                print("Terca")
+                while True:
+                    horr = input("Qual horario deseja remover?(00:00)")
+                    nomerem = input("Digite o nome corretamente que deseja remover o horario:")
+                    if nomerem in Menu.horarios:
+                        Menu.horarios.pop(nomerem)
+                        igual = horr
+                        terca_instancia.remover(igual=igual)
+                    else:
+                        escolha = input("Nome incorreto deseja tentar novamente?(s/n)")
+                        if escolha == 's' or escolha == 'S':
+                            continue
+                        else:
+                            break
+                    break
+
+            elif remov == 'qua':
+                print("Quarta")
+                while True:
+                    horr = input("Qual horario deseja remover?(00:00)")
+                    nomerem = input("Digite o nome corretamente que deseja remover o horario:")
+                    if nomerem in Menu.horarios:
+                        Menu.horarios.pop(nomerem)
+                        igual = horr
+                        quarta_instancia.remover(igual=igual)
+                    else:
+                        escolha = input("Nome incorreto deseja tentar novamente?(s/n)")
+                        if escolha == 's' or escolha == 'S':
+                            continue
+                        else:
+                            break
+                    break
+
+            elif remov == 'qui':
+                print("Quinta")
+                while True:
+                    horr = input("Qual horario deseja remover?(00:00)")
+                    nomerem = input("Digite o nome corretamente que deseja remover o horario:")
+                    if nomerem in Menu.horarios:
+                        Menu.horarios.pop(nomerem)
+                        igual = horr
+                        quinta_instancia.remover(igual=igual)
+                    else:
+                        escolha = input("Nome incorreto deseja tentar novamente?(s/n)")
+                        if escolha == 's' or escolha == 'S':
+                            continue
+                        else:
+                            break
+                    break
+
+            elif remov == 'sex':
+                print("Sexta")
+                while True:
+                    horr = input("Qual horario deseja remover?(00:00)")
+                    nomerem = input("Digite o nome corretamente que deseja remover o horario:")
+                    if nomerem in Menu.horarios:
+                        Menu.horarios.pop(nomerem)
+                        igual = horr
+                        sexta_instancia.remover(igual=igual)
+                    else:
+                        escolha = input("Nome incorreto deseja tentar novamente?(s/n)")
+                        if escolha == 's' or escolha == 'S':
+                            continue
+                        else:
+                            break
+                    break
+
+
+            else:
+                esccc = input("Dia não encontrado, deseja tentar novamente?(s/n)")
+                if esccc == 's' or esccc == 'S':
+                    continue
+                else:
+                    break
+            break
+
+    elif opcao == '5':
+      print(f"Cadastros disponiveis: {Menu.dicionario}")
+      nomers = input("Digite o nome que deseja refazer o cadastro: ")
+      if nomers in Menu.dicionario:
+        Menu.dicionario.pop(nomers)
+        nomeprov = input('Digite o nome correto: ')
+        cpfprov = input("Digite o CPF correto: ")
+        telprov = input("Digite o telefone correto: ")
+        i = Menu(nomeprov,cpfprov,telprov)
+        i.registrar()
+      else:
+        print("Nome não encontrado")
+
+    elif opcao == '6':
+        ctz = input("Deseja mesmo sair?(s/n)")
+        if ctz == 's' or ctz == 'S':
+            print("Fecho")
+            break
+        elif ctz == 'n' or ctz == 'N':
+            continue
+        else:
+            print("Comando não disponivel.")
+
+    else:
+        print(" ")

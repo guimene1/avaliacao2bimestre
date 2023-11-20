@@ -1,0 +1,122 @@
+from abc import ABC,abstractmethod
+class Registro(ABC):
+  def __init__(self,nome,cpf,telefone):
+      self._nome = nome
+      self._cpf = cpf
+      self._telefone = telefone
+
+  @abstractmethod
+  def registrar(self):
+      pass
+
+class Menu(Registro):
+  dicionario = {}
+  horarios = {}
+
+
+  def __init__(self,nome,cpf,telefone):
+      super().__init__(nome,cpf,telefone)
+
+
+  def registrar(self):
+      print(f'Usuario cadastrado.\nNome: {self._nome}\nCPF: {self._cpf}\nTelefone:{self._telefone}')
+      Menu.dicionario[f'{self._nome}'] = f'Nome: {self._nome} - Telefone:{self._telefone} - CPF:{self._cpf}'
+      print(Menu.dicionario)
+
+  def agendar(self,nome1,horario,dia):
+      self._dia = dia
+      self._horario = horario
+      self._nome1 = nome1
+      print(f'Horario agendado, dia: {self._dia} - Horario: {self._horario}')
+      Menu.horarios[f'{self._nome1}'] = f'Dia: {self._dia} Horario: {self._horario}'
+      print(Menu.horarios.items())
+
+class Remove:
+  def remover(self):
+      pass
+
+class segunda(Remove):
+  def remover(self,igual):
+      arquivoseg = "segunda.txt"
+      self._igual = igual
+
+      with open(arquivoseg,"r") as archive:
+          listasegunda = []
+          for linha in archive:
+              if f"{igual}\n" == linha:
+                  listasegunda.append("")
+              else:
+                  listasegunda.append(linha)
+
+
+      with open(arquivoseg,"w")as arquivo:
+          arquivo.writelines(listasegunda)
+
+class terca(Remove):
+  def remover(self,igual):
+      arquivoter = "terca.txt"
+      self._igual = igual
+
+      with open(arquivoter,"r") as archive:
+          listaterca = []
+          for linha in archive:
+              if f"{igual}\n" == linha:
+                  listaterca.append("")
+              else:
+                  listaterca.append(linha)
+
+
+      with open(arquivoter,"w")as arquivo:
+          arquivo.writelines(listaterca)
+
+class quarta(Remove):
+  def remover(self,igual):
+      arquivoqua = "quarta.txt"
+      self._igual = igual
+
+      with open(arquivoqua,"r") as archive:
+          listaquarta = []
+          for linha in archive:
+              if f"{igual}\n" == linha:
+                  listaquarta.append("")
+              else:
+                  listaquarta.append(linha)
+
+
+      with open(arquivoqua,"w")as arquivo:
+          arquivo.writelines(listaquarta)
+
+
+class quinta(Remove):
+  def remover(self,igual):
+      arquivoqui = "quinta.txt"
+      self._igual = igual
+
+      with open(arquivoqui,"r") as archive:
+          listaquinta = []
+          for linha in archive:
+              if f"{igual}\n" == linha:
+                  listaquinta.append("")
+              else:
+                  listaquinta.append(linha)
+
+
+      with open(arquivoqui,"w")as arquivo:
+          arquivo.writelines(listaquinta)
+
+class sexta(Remove):
+  def remover(self,igual):
+      arquivosex = "sexta.txt"
+      self._igual = igual
+
+      with open(arquivosex,"r") as archive:
+          listasexta = []
+          for linha in archive:
+              if f"{igual}\n" == linha:
+                  listasexta.append("")
+              else:
+                  listasexta.append(linha)
+
+
+      with open(arquivosex,"w")as arquivo:
+          arquivo.writelines(listasexta)
